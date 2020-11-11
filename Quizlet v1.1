@@ -1,0 +1,24 @@
+# ortancabijon sunar:) #
+
+print('Quize hoş geldiniz!')
+sorular = ['1) Cumhuriyet ne zaman ilan edildi ?',
+           '2) TBMM ne zaman açıldı ?',
+           '3) Zafer Bayramı ne zamandır ?',
+           '4) Öğretmenler günü ne zamandır ?',
+           '5) Gençlik ve Spor Bayramı ne zamandır ?']
+soru_numarası = 0
+sonSoru = len(sorular)
+cevaplar = ['29 Ekim ', '23 Nisan', '27 Ağustos', '10 Kasım', '19 Mayıs']
+yanlisCevap = False
+print('Cevaplarınızı GG Ay şeklinde yazınız')
+while soru_numarası <= sonSoru and not yanlisCevap:
+    cevap = input(sorular[soru_numarası])
+    if cevap == cevaplar[soru_numarası]:
+        print('Doğru Cevap!')
+        soru_numarası += 1
+    else:
+        yanlisCevap = True
+        print('Yanlış Cevap !')
+        soru_numarası += 1
+
+print('Quiz Bitti !')
