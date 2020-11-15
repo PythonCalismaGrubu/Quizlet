@@ -1,0 +1,36 @@
+# Hudai
+# Sınav Sonuçlarını txt dosyasına kaydeden program ilerde dosyadan veri okuyup öyle sınav değerlendirmesi yapılabilir. 
+
+ad=input("Adınızı Girin")
+soyad=input("Soyadınızı Girin")
+print("""Hoşgeldiniz {} {}
+      lütfen İşaretlediğiniz seçeneği her soru için
+      büyük harf olarak yazınız (A ya da B)""".format(ad,soyad)) # format komutu {} yerine sırayla istenileni koyar
+list=["2+2=? A.)4 B.)6",
+      "4-5=? A.)-1 B.)2",
+      "6*4=? A.)24 B.)30"]
+soru_numarası=0
+sonSoru=len(list)-1
+cevaplar=['A','A','A']
+puan=0
+yanlisCevap = False
+dosya=open("sinav.txt","w")
+while soru_numarası <= sonSoru and not yanlisCevap:
+    cevap=input(list[soru_numarası])
+    if cevap == cevaplar[soru_numarası]:
+        puan +=10
+        soru_numarası +=1
+        print("{}. Soru İçin\t".format(soru_numarası),file=dosya, sep="")
+        print("Doğru Cevap!\n", file=dosya)
+        
+    else:
+        yanlisCevap = True
+        puan=puan
+        soru_numarası +=1
+        print("{}. Soru İçin\t".format(soru_numarası),file=dosya, sep="")
+        print('Yanlış Cevap!', file=dosya)
+                
+print("Toplam {} puan topladınız".format(puan), file=dosya)
+print("Sınav bitti ve txt dosyası olarak ilgili klasöre kaydedildi")
+
+dosya.close()
