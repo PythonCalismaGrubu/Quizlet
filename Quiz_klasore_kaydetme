@@ -13,22 +13,20 @@ soru_numarası=0
 sonSoru=len(list)-1
 cevaplar=['A','A','A']
 puan=0
-yanlisCevap = False
+#yanlisCevap = False #eğer ilk yanlışta döngü kırılmasın isteniyorsa bunu kaldıracağız.
 dosya=open("sinav.txt","w")
-while soru_numarası <= sonSoru and not yanlisCevap:
+while soru_numarası <= sonSoru: # and not yanlisCevap:
     cevap=input(list[soru_numarası])
     if cevap == cevaplar[soru_numarası]:
         puan +=10
         soru_numarası +=1
-        print("{}. Soru İçin\t".format(soru_numarası),file=dosya, sep="")
-        print("Doğru Cevap!\n", file=dosya)
+        print("{}. Soru İçin\t Doğru Cevap!".format(soru_numarası),file=dosya,)
         
     else:
-        yanlisCevap = True
+        #yanlisCevap = True
         puan=puan
         soru_numarası +=1
-        print("{}. Soru İçin\t".format(soru_numarası),file=dosya, sep="")
-        print('Yanlış Cevap!', file=dosya)
+        print("{}. Soru İçin\t Yanlış Cevap".format(soru_numarası),file=dosya,)
                 
 print("Toplam {} puan topladınız".format(puan), file=dosya)
 print("Sınav bitti ve txt dosyası olarak ilgili klasöre kaydedildi")
